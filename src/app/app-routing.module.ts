@@ -23,7 +23,12 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'cuestionario/:tables',
+    path: 'cuestionario/:param',
+    component: CuestionariosUsuarioComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'cuestionario/:param/preguntas',
     component: CuestionariosUsuarioComponent,
     pathMatch: 'full',
   },
@@ -33,9 +38,9 @@ const routes: Routes = [
       import('./pages/admin/admin.module').then((m) => m.AdminModule),
   },
   {
-    path : 'usuario/perfil',
-    component : PerfilComponent,
-    pathMatch : 'full'
+    path: 'usuario/perfil',
+    component: PerfilComponent,
+    pathMatch: 'full',
   },
 ];
 

@@ -10,19 +10,8 @@
             </mat-card-header>
             <mat-card-subtitle>Un paso más para ir</mat-card-subtitle>
             <mat-card-content class="ml30">
-              <h1>{{ examen.titulo }}</h1>
-              <p>{{ examen.descripcion }}</p>
+              <h1> Cuestionatio #{{ parametro }}</h1>
               <mat-divider></mat-divider>
-            <br>
-            <h1>Instrucciones importantes</h1>
-  
-            <ul>
-              <li>Este cuestionario es solo para fines de práctica</li>
-              <li>Tienes que enviar el cuestionario en <b>{{ examen.numeroDePreguntas * 2 }} minutos</b></li>
-              <li>Puede intentar el cuestionario cualquier cantidad de veces</li>
-              <li>Hay <b>{{ examen.puntosMaximos/examen.numeroDePreguntas }} puntos por pregunta</b></li>
-            </ul>
-            <mat-divider></mat-divider>
             <br>
             <h1>Intentos de la prueba</h1>
             <ul>
@@ -35,7 +24,7 @@
             </ul>
           </mat-card-content>
           <mat-card-actions class="text-center mb20">
-            <button (click) = "empezarExamen()" mat-raised-button color="primary">
+            <button  mat-raised-button color="primary">
               Comenzar prueba
             </button>
           </mat-card-actions>
