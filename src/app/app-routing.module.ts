@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CuestionariosUsuarioComponent } from './pages/user/cuestionarios-usuario/cuestionarios-usuario.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegistroComponent } from './pages/registrarse/registro.component';
+import { PerfilComponent } from './pages/perfil/perfil.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,11 @@ const routes: Routes = [
   {
     path : 'cuestionario/:tables',
     component : CuestionariosUsuarioComponent,
+    pathMatch : 'full'
+  },
+  {
+    path : 'usuario/perfil',
+    component : PerfilComponent,
     pathMatch : 'full'
   },
 ];

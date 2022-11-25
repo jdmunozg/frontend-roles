@@ -23,6 +23,7 @@ import { CuestionariosUsuarioComponent } from './pages/user/cuestionarios-usuari
 import { SidebarComponent } from './pages/user/sidebar/sidebar.component';
 import { TablesCuestionariosComponent } from './pages/user/tables-cuestionarios/tables-cuestionarios.component'
 import {TableModule} from 'primeng/table';
+import { PerfilComponent } from './pages/perfil/perfil.component';
 // import { NgxUiLoaderModule , NgxUiLoaderHttpModule } from "ngx-ui-loader";
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import {TableModule} from 'primeng/table';
     CuestionariosUsuarioComponent,
     SidebarComponent,
     TablesCuestionariosComponent,
+    PerfilComponent,
   ],
   imports: [
     BrowserModule,
