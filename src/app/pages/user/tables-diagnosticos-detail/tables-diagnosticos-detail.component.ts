@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DiagnosticoRolIngenierosService } from 'src/app/services/diagnostico-rol-ingenieros.service';
 import { RespuestasCuestionariosService } from 'src/app/services/respuestas-cuestionarios.service';
+import { RolIngenieroService } from 'src/app/services/rol-ingeniero.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
@@ -12,13 +13,15 @@ export class TablesDiagnosticosDetailComponent implements OnInit {
   @Input() diagnosticoId: any;
   datos: any[] = [];
   constructor(
-    private diagnosticoRolIngenierosService: DiagnosticoRolIngenierosService
+    private diagnosticoRolIngenierosService: DiagnosticoRolIngenierosService,
+    private rolIngenieroService: RolIngenieroService
   ) {}
 
   ngOnInit(): void {
-    this.diagnosticoRolIngenierosService.getAllByDiagnosticoId(this.diagnosticoId).subscribe((data: any) => {
-      this.datos = data;
-      console.log('DATOS:', this.datos);
-    });
+    this.diagnosticoRolIngenierosService
+      .getAllByDiagnosticoId(this.diagnosticoId)
+      .subscribe((data: any) => {
+        this.datos = data;
+      });
   }
 }
