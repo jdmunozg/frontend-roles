@@ -1,0 +1,88 @@
+<div
+  style="
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  "
+>
+  <div style="width: 250px">
+    <p-dropdown
+      [options]="cities"
+      [(ngModel)]="selectedCity"
+      optionLabel="nombre"
+      placeholder="Selecciona un cuestionario"
+      optionValue="id_cuestionario"
+      [style]="{ width: '100%' }"
+      (onChange)="selectCuestionario($event.value)"
+    ></p-dropdown>
+  </div>
+  <div style="width: 250px; margin-left: 10px">
+    <p-dropdown
+      [options]="citiesT"
+      [(ngModel)]="selectedCityT"
+      optionLabel="seccion"
+      placeholder="Selecciona una seccion"
+      optionValue="id_seccion"
+      [style]="{ width: '100%' }"
+      (onChange)="tableRellenar($event.value)"
+    ></p-dropdown>
+  </div>
+</div>
+
+<div style="margin-top: 10px" *ngIf="products != null && products != ''">
+  <p-table
+    #dt1
+    [columns]="cols"
+    [value]="products"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    [loading]="loading"
+    [scrollable]="true"
+    scrollHeight="400px"
+  >
+    <ng-template pTemplate="caption">
+      <div class="p-d-flex">
+        <span class="p-input-icon-left p-ml-auto">
+          <i class="pi pi-search"></i>
+          <input
+            pInputText
+            type="text"
+            (input)="dt1.filterGlobal($any($event.target).value, 'contains')"
+            placeholder="Search keyword"
+          />
+        </span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of columns">
+          {{ col.header }}
+        </th>
+        <th>Herramientas</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+      <tr>
+        <td *ngFor="let col of columns">
+          {{ rowData[col.field] }}
+        </td>
+
+        <td>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-pencil"
+            class="p-button-rounded p-button-success mr-2"
+            style="margin-right: 30px"
+          ></button>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-trash"
+            class="p-button-rounded p-button-warning"
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

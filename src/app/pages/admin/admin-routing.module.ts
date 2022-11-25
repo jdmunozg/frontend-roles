@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { CuestionarioComponent } from './components/cuestionario/cuestionario.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
+import { PreguntasComponent } from './components/preguntas/preguntas.component';
 
 const routes: Routes = [
   {
@@ -16,6 +18,8 @@ const routes: Routes = [
         pathMatch: 'full',
       },
       { path: 'cuestionario', component: CuestionarioComponent },
+      { path: 'perfil', component: PerfilComponent },
+      { path: 'pregunta', component: PreguntasComponent },
     ],
   },
 ];

@@ -29,4 +29,7 @@ export class CuestionarioServiceService {
       badyRequest
     );
   }
+  getpreguntasHabildiad(id) {
+    return this.http.get(`${baserUrl}/pregunta/bySeccionId/${id}`);
+  }
 }
