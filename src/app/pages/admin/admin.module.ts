@@ -11,7 +11,12 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { CuestionarioComponent } from './components/cuestionario/cuestionario.component';
 
 @NgModule({
-  declarations: [AdminComponent, NavVerticalComponent, WelcomeComponent, CuestionarioComponent],
+  declarations: [
+    AdminComponent,
+    NavVerticalComponent,
+    WelcomeComponent,
+    CuestionarioComponent,
+  ],
   imports: [
     CommonModule,
     AdminRoutingModule,
