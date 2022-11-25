@@ -28,14 +28,19 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
+    path: 'cuestionario/:tables/:cuestionarioId',
+    component: CuestionariosUsuarioComponent,
+    pathMatch: 'full',
+  },
+  {
     path: 'admin',
     loadChildren: () =>
       import('./pages/admin/admin.module').then((m) => m.AdminModule),
   },
   {
-    path : 'usuario/perfil',
-    component : PerfilComponent,
-    pathMatch : 'full'
+    path: 'usuario/perfil',
+    component: PerfilComponent,
+    pathMatch: 'full',
   },
 ];
 
