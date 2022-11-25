@@ -29,4 +29,14 @@ export class UsuarioService implements OnInit{
   public autenticacionUsuario(correo:String,clave:String){
     return this.httpClient.get(`${baserUrl}/usuario/validar/${correo}/${clave}`);
   }
+
+  public getUser(){
+    let userStr = localStorage.getItem('usuario');
+    if(userStr != null){
+      return JSON.parse(userStr);
+    }else{
+      // this.logout();
+      return null;
+    }
+  }
 }

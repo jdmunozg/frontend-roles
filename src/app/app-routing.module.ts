@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CuestionariosUsuarioComponent } from './pages/user/cuestionarios-usuario/cuestionarios-usuario.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegistroComponent } from './pages/registrarse/registro.component';
+import { PerfilComponent } from './pages/perfil/perfil.component';
 import { AdminModule } from './pages/admin/admin.module';
 
 const routes: Routes = [
@@ -30,6 +31,11 @@ const routes: Routes = [
     path: 'admin',
     loadChildren: () =>
       import('./pages/admin/admin.module').then((m) => m.AdminModule),
+  },
+  {
+    path : 'usuario/perfil',
+    component : PerfilComponent,
+    pathMatch : 'full'
   },
 ];
 
