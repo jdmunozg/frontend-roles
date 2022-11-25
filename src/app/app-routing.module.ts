@@ -5,6 +5,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegistroComponent } from './pages/registrarse/registro.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { AdminModule } from './pages/admin/admin.module';
+import { PreguntasCuestionarioComponent } from './pages/user/preguntas-cuestionario/preguntas-cuestionario.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,11 @@ const routes: Routes = [
     component: PerfilComponent,
     pathMatch: 'full',
   },
+  {
+    path: 'cuestionario/:preguntas/:cuestionarioId',
+    component: PreguntasCuestionarioComponent,
+    pathMatch: 'full',
+  }
 ];
 
 @NgModule({

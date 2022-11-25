@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./preguntas-cuestionario.component.css'],
 })
 export class PreguntasCuestionarioComponent implements OnInit {
-  constructor() {}
+  constructor() {
+  }
 
   ngOnInit(): void {}
 }
