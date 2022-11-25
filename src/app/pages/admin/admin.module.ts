@@ -11,7 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -19,9 +19,18 @@ import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { CuestionarioComponent } from './components/cuestionario/cuestionario.component';
+import { TableModule } from 'primeng/table';
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
-  declarations: [AdminComponent, NavVerticalComponent, WelcomeComponent, CuestionarioComponent],
+  declarations: [
+    AdminComponent,
+    NavVerticalComponent,
+    WelcomeComponent,
+    CuestionarioComponent,
+  ],
   imports: [
     CommonModule,
     AdminRoutingModule,
@@ -38,6 +47,11 @@ import { CuestionarioComponent } from './components/cuestionario/cuestionario.co
     MatCardModule,
     MatToolbarModule,
     MatIconModule,
+    TableModule,
+    InputTextModule,
+    ButtonModule,
+    DialogModule,
+    ReactiveFormsModule,
   ],
 })
 export class AdminModule {}
