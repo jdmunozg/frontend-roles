@@ -15,6 +15,7 @@ export class CuestionariosUsuarioComponent implements OnInit {
     this.activatedRoute.params.subscribe(
       async data=>{
         this.params = data['tables'];
+        await this.params;
         console.log(this.params);
       }
     )
