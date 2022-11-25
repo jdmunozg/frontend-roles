@@ -3,32 +3,38 @@ import { RouterModule, Routes } from '@angular/router';
 import { CuestionariosUsuarioComponent } from './pages/user/cuestionarios-usuario/cuestionarios-usuario.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegistroComponent } from './pages/registrarse/registro.component';
+import { AdminModule } from './pages/admin/admin.module';
 
 const routes: Routes = [
   {
-    path : 'registro',
-    component : RegistroComponent,
-    pathMatch : 'full'
+    path: 'registro',
+    component: RegistroComponent,
+    pathMatch: 'full',
   },
   {
-    path : 'login',
-    component : LoginComponent,
-    pathMatch : 'full'
+    path: 'login',
+    component: LoginComponent,
+    pathMatch: 'full',
   },
   {
-    path : 'cuestionario',
-    component : CuestionariosUsuarioComponent,
-    pathMatch : 'full'
+    path: 'cuestionario',
+    component: CuestionariosUsuarioComponent,
+    pathMatch: 'full',
   },
   {
-    path : 'cuestionario/:tables',
-    component : CuestionariosUsuarioComponent,
-    pathMatch : 'full'
+    path: 'cuestionario/:tables',
+    component: CuestionariosUsuarioComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'admin',
+    loadChildren: () =>
+      import('./pages/admin/admin.module').then((m) => m.AdminModule),
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
