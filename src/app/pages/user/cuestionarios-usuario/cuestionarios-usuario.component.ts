@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { async } from 'rxjs';
 
 @Component({
   selector: 'app-cuestionarios-usuario',
@@ -14,8 +13,7 @@ export class CuestionariosUsuarioComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(
       async data=>{
-        this.params = data['tables'];
-        await this.params;
+        this.params = await data['tables'];
         console.log(this.params);
       }
     )

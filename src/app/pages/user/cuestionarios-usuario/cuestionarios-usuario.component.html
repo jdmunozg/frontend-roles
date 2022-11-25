@@ -4,14 +4,17 @@
         <div class="col-md-3">
           <app-sidebar></app-sidebar>
         </div>
-        <div class="col-md-6" >
+        <div class="col-md-9" >
 
           <router-outlet>
             
           </router-outlet>
-          <app-tables-cuestionarios [parametro]=params>
+          <app-tables-cuestionarios *ngIf="params === 'tables-cuestionarios'">
 
           </app-tables-cuestionarios>
+          <app-tables-diagnosticos *ngIf="params === 'tables-diagnosticos'">
+
+          </app-tables-diagnosticos>
         </div>
         
         <!-- <div class="col-md-9">
