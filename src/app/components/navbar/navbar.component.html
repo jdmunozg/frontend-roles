@@ -1,1 +1,57 @@
-<p>navbar works!</p>
+<nav class="" style="display: flex; justify-content: space-between; align-items: center; background-color: #3F51B5; color: #fff; padding: 0.5rem;">
+    <div style="display: flex; justify-content: center; align-items: center; margin-left: 2rem;">
+    <a
+      [routerLink]="'/'"
+      mat-icon-button
+      class="example-icon"
+      arial-label="Example icon-button with menu icon"
+      style="cursor: pointer; "
+    >
+      <mat-icon>menu_books</mat-icon>
+    </a>
+    <span      style="font-size: 1.4rem;">PerfilSoft!</span>
+    <span class="example-spacer"></span>
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center;  margin-right: 2rem;">
+    <a
+
+      [routerLink]="'/login'"
+      mat-icon-button
+      class = "example-icon favorite-icon"
+      aria-label = "Example icon-button with heart icon"
+      style="font-size: 1rem"
+    >
+      Iniciar sesión
+    </a>
+    <a
+      [routerLink]="'/registro'"
+      mat-icon-button
+      class="example-icon favorite-icon mr20 ml70"
+      aria-label="Example icon-button with heart icon"
+      style="font-size: 1rem" 
+    >
+      Registrar
+    </a>
+</div>
+  
+</nav>  
+    <!-- <a
+
+      (click) = "logout()"
+      style="margin-right: 50px"
+      mat-icon-button
+      class="example-icon favorite-icon"
+      aria-label="Example icon-button with heart icon"
+    >
+      Cerrar sesión
+    </a> -->
+    <!-- <button
+
+      mat-button
+      style="margin-right: 10px"
+      class="example-icon favorite-icon"
+      aria-label="Example icon-button with heart icon"
+      [routerLink] = "'/admin/profile'"
+    >
+      {{ user.username }}
+    </button> -->
