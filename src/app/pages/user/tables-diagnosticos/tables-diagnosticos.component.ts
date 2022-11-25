@@ -19,9 +19,8 @@ export class TablesDiagnosticosComponent implements OnInit {
 
   ngOnInit(): void {
     this.usuario = this.usuarioService.getUser();
-    this.respuestasCuestionariosService.getAll().subscribe((data: any) => {
+    this.respuestasCuestionariosService.getAllByUsuarioId(this.usuario.id_usuario).subscribe((data: any) => {
       this.datos = data;
-      console.log('DATOS:', this.datos);
     });
     this.activatedRoute.params.subscribe(async (data) => {
       this.params = await data['cuestionarioId'];
