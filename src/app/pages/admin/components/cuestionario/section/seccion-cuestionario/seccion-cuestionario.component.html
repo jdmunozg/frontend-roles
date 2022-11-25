@@ -1,0 +1,74 @@
+<p-accordionTab header="{{ informacion.seccion }}">
+  <h2>{{ informacion.habilidad }}</h2>
+  <ng-template pTemplate="content"
+    ><div>
+      <form [formGroup]="group" (ngSubmit)="onSumit(group.value)">
+        <div style="width: 100%; display: flex; flex-direction: row">
+          <div style="width: 50%; margin-right: 10px">
+            <span>ID Seccion:</span>
+            <input
+              type="text"
+              pInputText
+              style="width: 100%"
+              [required]="true"
+              [value]="informacion.id_seccion"
+              disabled
+            />
+          </div>
+          <div style="width: 50%">
+            <span>Puntaje:</span>
+            <input
+              type="number"
+              pInputText
+              style="width: 100%"
+              [required]="true"
+              formControlName="estandar_puntuacion"
+            />
+          </div>
+        </div>
+        <div style="width: 100%; display: flex; flex-direction: row">
+          <div style="width: 50%; margin-right: 10px">
+            <span>Habilidad</span><br />
+            <p-dropdown
+              [options]="cities"
+              [(ngModel)]="selectedCity"
+              [style]="{ width: '100%' }"
+              optionLabel="habilidad"
+              optionValue="id_habilidad"
+              formControlName="fk_habilidad"
+            ></p-dropdown>
+          </div>
+          <div style="width: 50%">
+            <span>Nombre seccion:</span>
+            <input
+              type="text"
+              pInputText
+              style="width: 100%"
+              [required]="true"
+              formControlName="seccion"
+            />
+          </div>
+        </div>
+        <div
+          style="
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            margin-top: 30px;
+          "
+        >
+          <button
+            pButton
+            label="Continuar"
+            style="
+              border-radius: 30px;
+              background-color: #7ab800;
+              color: white;
+              margin-right: 10px;
+            "
+            type="submit"
+          ></button>
+        </div>
+      </form></div
+  ></ng-template>
+</p-accordionTab>

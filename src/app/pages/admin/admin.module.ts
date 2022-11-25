@@ -9,6 +9,15 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { CuestionarioComponent } from './components/cuestionario/cuestionario.component';
+import { TableModule } from 'primeng/table';
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { SeccionCuestionarioComponent } from './components/cuestionario/section/seccion-cuestionario/seccion-cuestionario.component';
+import { AccordionModule } from 'primeng/accordion';
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
   declarations: [
@@ -16,6 +25,7 @@ import { CuestionarioComponent } from './components/cuestionario/cuestionario.co
     NavVerticalComponent,
     WelcomeComponent,
     CuestionarioComponent,
+    SeccionCuestionarioComponent,
   ],
   imports: [
     CommonModule,
@@ -23,6 +33,15 @@ import { CuestionarioComponent } from './components/cuestionario/cuestionario.co
     MatIconModule,
     MatListModule,
     MatCardModule,
+    InputTextModule,
+    TableModule,
+    ButtonModule,
+    DialogModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    AccordionModule,
+    DropdownModule,
   ],
 })
 export class AdminModule {}
