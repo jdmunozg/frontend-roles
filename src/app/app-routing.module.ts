@@ -20,6 +20,11 @@ const routes: Routes = [
     component : CuestionariosUsuarioComponent,
     pathMatch : 'full'
   },
+  {
+    path : 'cuestionario/:tables',
+    component : CuestionariosUsuarioComponent,
+    pathMatch : 'full'
+  },
 ];
 
 @NgModule({

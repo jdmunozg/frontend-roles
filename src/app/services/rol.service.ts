@@ -5,12 +5,11 @@ import baserUrl from './helper';
 @Injectable({
   providedIn: 'root'
 })
-export class CuestionarioService {
+export class RolService {
 
-  constructor(private http:HttpClient) { }
-
-  public listarCategorias(){
-    return this.http.get(`${baserUrl}/cuestionario`);
-  }
   
+  constructor(private httpClient: HttpClient) { }
+  public getRolById(id:any){
+    return this.httpClient.get(`${baserUrl}/rol/byId/${id}`);
+  }
 }

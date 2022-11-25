@@ -1,0 +1,32 @@
+<p-table [value]="datos" *ngIf="parametro=='tables-cuestionarios'" >
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Cuestionario</th>
+            <th>Comenzar</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-dato>
+        <tr>
+            <td>{{dato.nombre}}</td>
+            <td><a href="">Comenzar</a></td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<p-table [value]="datos" *ngIf="parametro=='tables-diagnosticos'" >
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Diagnostico</th>
+            <th>Visualizar</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+        <tr>
+
+            <!-- <td>{{product.code}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.category}}</td>
+            <td>{{product.quantity}}</td> -->
+        </tr>
+    </ng-template>
+</p-table>

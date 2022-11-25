@@ -1,12 +1,17 @@
 <mat-card>
     <mat-action-list>
       <div mat-subheader>Categorías disponibles</div>
-      <button routerLink="/cuestionario/0" mat-list-item>
+      <button routerLink="/cuestionario/tables-cuestionarios" mat-list-item>
         <mat-icon mat-list-icon>quiz</mat-icon>Cuestionarios
       </button>
-      <button [routerLink] = "'/cuestionario/'+c.categoriaId" mat-list-item *ngFor = "let c of categorias">
-        <mat-icon mat-list-icon>account_circle</mat-icon> {{ c.nombre }}
+      <button routerLink="/cuestionario/tables-diagnosticos" mat-list-item>
+        <mat-icon mat-list-icon>quiz</mat-icon>Diagnosticos
       </button>
     </mat-action-list>
-  </mat-card>
+</mat-card>
   
+
+
+<!-- <button [routerLink] = "'/cuestionario/'+c.categoriaId" mat-list-item *ngFor = "let c of categorias">
+  <mat-icon mat-list-icon>account_circle</mat-icon> {{ c.nombre }}
+</button> -->

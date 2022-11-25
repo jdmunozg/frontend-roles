@@ -20,7 +20,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { LoginComponent } from './pages/login/login.component';
 import {MatSelectModule} from '@angular/material/select';
 import { CuestionariosUsuarioComponent } from './pages/user/cuestionarios-usuario/cuestionarios-usuario.component';
-import { SidebarComponent } from './pages/user/sidebar/sidebar.component'
+import { SidebarComponent } from './pages/user/sidebar/sidebar.component';
+import { TablesCuestionariosComponent } from './pages/user/tables-cuestionarios/tables-cuestionarios.component'
+import {TableModule} from 'primeng/table';
 // import { NgxUiLoaderModule , NgxUiLoaderHttpModule } from "ngx-ui-loader";
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { SidebarComponent } from './pages/user/sidebar/sidebar.component'
     RegistroComponent,
     LoginComponent,
     CuestionariosUsuarioComponent,
-    SidebarComponent
+    SidebarComponent,
+    TablesCuestionariosComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,8 @@ import { SidebarComponent } from './pages/user/sidebar/sidebar.component'
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    TableModule
     // NgxUiLoaderModule,
     // NgxUiLoaderHttpModule.forRoot({
     //   showForeground:true

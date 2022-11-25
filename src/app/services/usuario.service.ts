@@ -15,11 +15,18 @@ export class UsuarioService implements OnInit{
     fk_rol_usuario : '',
     estado : ''
   }
+  // public user_sesion = {
+  //   correo:'',
+  //   clave: ''
+  // }
 
   constructor(private httpClient: HttpClient) { }
   ngOnInit(): void {}
 
   public añadirUsuario(user:any){
     return this.httpClient.post(`${baserUrl}/usuario`,user);
+  }
+  public autenticacionUsuario(correo:String,clave:String){
+    return this.httpClient.get(`${baserUrl}/usuario/validar/${correo}/${clave}`);
   }
 }
