@@ -1,7 +1,26 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CuestionariosUsuarioComponent } from './pages/user/cuestionarios-usuario/cuestionarios-usuario.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegistroComponent } from './pages/registrarse/registro.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path : 'registro',
+    component : RegistroComponent,
+    pathMatch : 'full'
+  },
+  {
+    path : 'login',
+    component : LoginComponent,
+    pathMatch : 'full'
+  },
+  {
+    path : 'cuestionario',
+    component : CuestionariosUsuarioComponent,
+    pathMatch : 'full'
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
