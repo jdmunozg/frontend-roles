@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CuestionarioService } from 'src/app/services/cuestionario.service';
+import { RespuestasCuestionariosService } from 'src/app/services/respuestas-cuestionarios.service';
 
 @Component({
   selector: 'app-tables-cuestionarios',

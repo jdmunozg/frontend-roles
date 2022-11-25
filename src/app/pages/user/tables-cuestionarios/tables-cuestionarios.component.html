@@ -1,4 +1,4 @@
-<p-table [value]="datos" *ngIf="parametro=='tables-cuestionarios'" >
+<p-table [value]="datos">
     <ng-template pTemplate="header">
         <tr>
             <th>Cuestionario</th>
@@ -9,24 +9,6 @@
         <tr>
             <td>{{dato.nombre}}</td>
             <td><button href='' class="btn btn-primary" routerLink="/cuestionario/{{dato.id_cuestionario}}/preguntas">Iniciar</button></td>
-        </tr>
-    </ng-template>
-</p-table>
-
-<p-table [value]="datos" *ngIf="parametro=='tables-diagnosticos'" >
-    <ng-template pTemplate="header">
-        <tr>
-            <th>Diagnostico</th>
-            <th>Visualizar</th>
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-product>
-        <tr>
-
-            <!-- <td>{{product.code}}</td>
-            <td>{{product.name}}</td>
-            <td>{{product.category}}</td>
-            <td>{{product.quantity}}</td> -->
         </tr>
     </ng-template>
 </p-table>

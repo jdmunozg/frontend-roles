@@ -1,0 +1,29 @@
+<p-table [value]="datos" *ngIf="!params">
+  <ng-template pTemplate="header">
+    <tr>
+      <th id="">Id</th>
+      <th id="">Cuestionario</th>
+      <th id="">Fecha desarrollo</th>
+      <th id="">Visualizar</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-dato>
+    <tr>
+      <td>{{ dato.id_respuesta_cuestionario }}</td>
+      <td>{{ dato.fk_cuestionario }}</td>
+      <td>{{ dato.fecha_desarrollo }}</td>
+      <td>
+        <button
+          [routerLink]="['/cuestionario/tables-diagnosticos/', dato.id_respuesta_cuestionario]"
+          class="btn btn-primary"
+        >
+          Ver
+        </button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+<app-tables-diagnosticos-detail
+  [diagnosticoId]="params"
+  *ngIf="params"
+></app-tables-diagnosticos-detail>
