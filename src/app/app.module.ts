@@ -26,6 +26,7 @@ import { TableModule } from 'primeng/table';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { PreguntasCuestionarioComponent } from './pages/user/preguntas-cuestionario/preguntas-cuestionario.component';
 import { TablesDiagnosticosComponent } from './pages/user/tables-diagnosticos/tables-diagnosticos.component';
+import { TablesDiagnosticosDetailComponent } from './pages/user/tables-diagnosticos-detail/tables-diagnosticos-detail.component';
 // import { NgxUiLoaderModule , NgxUiLoaderHttpModule } from "ngx-ui-loader";
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { TablesDiagnosticosComponent } from './pages/user/tables-diagnosticos/ta
     PerfilComponent,
     PreguntasCuestionarioComponent,
     TablesDiagnosticosComponent,
+    TablesDiagnosticosDetailComponent,
   ],
   imports: [
     BrowserModule,
