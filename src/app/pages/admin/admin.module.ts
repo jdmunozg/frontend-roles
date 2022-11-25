@@ -20,6 +20,7 @@ import { AccordionModule } from 'primeng/accordion';
 import { DropdownModule } from 'primeng/dropdown';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { PreguntasComponent } from './components/preguntas/preguntas.component';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,8 @@ import { PreguntasComponent } from './components/preguntas/preguntas.component';
     HttpClientModule,
     AccordionModule,
     DropdownModule,
+    InputTextModule,
+    InputTextareaModule,
   ],
 })
 export class AdminModule {}

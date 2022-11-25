@@ -32,4 +32,11 @@ export class CuestionarioServiceService {
   getpreguntasHabildiad(id) {
     return this.http.get(`${baserUrl}/pregunta/bySeccionId/${id}`);
   }
+
+  pathPreguntas(bodyRequest) {
+    return this.http.patch(
+      `${baserUrl}/pregunta/${bodyRequest.id_pregunta}`,
+      bodyRequest
+    );
+  }
 }
