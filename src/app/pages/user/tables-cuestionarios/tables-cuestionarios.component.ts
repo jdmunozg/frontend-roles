@@ -12,6 +12,8 @@ import Swal from 'sweetalert2';
 export class TablesCuestionariosComponent implements OnInit {
   datos: any;
   idCuestionario:any;
+  params: any;
+  cuestionario: any[] = [];
   constructor(
     private cuestionarioService: CuestionarioService,
     private respuestasCuestionariosService: RespuestasCuestionariosService,
@@ -24,6 +26,15 @@ export class TablesCuestionariosComponent implements OnInit {
     this.cuestionarioService.listarCategorias().subscribe((data: any) => {
       this.datos = data;
     });
+    this.activatedRoute.params.subscribe(async (data) => {
+      this.params = await data['cuestionarioId'];
+      if(this.params) {
+        this.cuestionarioService.mostrarCuestionario(this.params).subscribe((cuestionario: any[]) => {
+          this.cuestionario = cuestionario;
+          console.log(this.cuestionario)
+        })
+      }
+    });
   }
   empezarExamen(id_cuestionario){
     Swal.fire({
@@ -33,9 +44,8 @@ export class TablesCuestionariosComponent implements OnInit {
       confirmButtonText:'Empezar',
       icon:'info'
     }).then((result:any) => {
-      console.log(id_cuestionario)
       if(result.isConfirmed){
-        this.router.navigate(['/cuestionario/preguntas/' + id_cuestionario])
+        this.router.navigate(['cuestionario/tables-cuestionarios/' + id_cuestionario])
       }
     });
   }

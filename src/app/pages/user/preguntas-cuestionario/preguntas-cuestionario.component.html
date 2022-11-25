@@ -1,4 +1,18 @@
-<div class="bootstrap-wrapper">
-    <div class="container">
-</div>
+<div class="bootstrap-wrapper" style="background-color: white; min-height: 100vh;">
+  <div class="container">
+    <div *ngFor="let seccion of cuestionario">
+      <h3>Seccion: {{ seccion.seccion }}</h3>
+      <hr>
+      <div *ngFor="let pregunta of seccion.pregunta">
+        <p>
+          Pregunta: {{ pregunta.enunciado }}
+        </p>
+        <div style="border: 1px solid black ;">
+            <p *ngFor="let respuesta of pregunta.respuestas; index as index">
+                {{index}}.) {{respuesta.opcion_respuesta}}
+            </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

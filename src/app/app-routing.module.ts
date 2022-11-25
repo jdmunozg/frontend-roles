@@ -34,6 +34,11 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
+    path: 'cuestionario/:tables/:cuestionarioId',
+    component: CuestionariosUsuarioComponent,
+    pathMatch: 'full',
+  },
+  {
     path: 'admin',
     loadChildren: () =>
       import('./pages/admin/admin.module').then((m) => m.AdminModule),
@@ -43,11 +48,6 @@ const routes: Routes = [
     component: PerfilComponent,
     pathMatch: 'full',
   },
-  {
-    path: 'cuestionario/:preguntas/:cuestionarioId',
-    component: PreguntasCuestionarioComponent,
-    pathMatch: 'full',
-  }
 ];
 
 @NgModule({

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-preguntas-cuestionario',
@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./preguntas-cuestionario.component.css'],
 })
 export class PreguntasCuestionarioComponent implements OnInit {
+  @Input() cuestionario: any[];
   constructor() {
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 }
