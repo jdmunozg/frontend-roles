@@ -24,6 +24,7 @@ export class PreguntasComponent implements OnInit {
   display: boolean = false;
   seccion: any;
   continuar: boolean = true;
+  abrir: boolean = false;
   constructor(
     private cuestionarioService: CuestionarioService,
     private _servicesCuestionario: CuestionarioServiceService,
@@ -44,8 +45,10 @@ export class PreguntasComponent implements OnInit {
 
   selectCuestionario(value) {
     this.valorCategoria = value;
+    this.abrir = true;
     this._servicesCuestionario.getSeccionWithQuestions(value).subscribe((r) => {
       this.citiesT = r;
+      this.abrir = false;
     });
     console.log(this.valorCategoria);
   }
@@ -58,6 +61,7 @@ export class PreguntasComponent implements OnInit {
   }
 
   showModal(info) {
+    this.continuar = true;
     this.information = info;
     this.group = this.formBuilder.group({
       id_pregunta: info.id_pregunta,
