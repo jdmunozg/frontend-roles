@@ -24,6 +24,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { OpcionRespuestaComponent } from './components/preguntas/section/opcion-respuesta/opcion-respuesta.component';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
+import { CrearCuestionarioComponent } from './components/crear-cuestionario/crear-cuestionario.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { MessageModule } from 'primeng/message';
     PerfilComponent,
     PreguntasComponent,
     OpcionRespuestaComponent,
+    CrearCuestionarioComponent,
   ],
   imports: [
     CommonModule,

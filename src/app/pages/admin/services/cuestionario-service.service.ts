@@ -50,4 +50,27 @@ export class CuestionarioServiceService {
       bodyRequest
     );
   }
+
+  postCuestionarios(body) {
+    return this.http.post(`${baserUrl}/cuestionario`, body);
+  }
+
+  postSeccion_cues(body) {
+    return this.http.post(`${baserUrl}/seccion-cuestionario`, body);
+  }
+
+  postSeccionCuestionarioCues(body) {
+    return this.http.post(
+      `${baserUrl}/cuestionario-seccion-cuestionario`,
+      body
+    );
+  }
+
+  postPregunta(body) {
+    return this.http.post(`${baserUrl}/pregunta`, body);
+  }
+
+  postOpcionRespuesta(body) {
+    return this.http.post(`${baserUrl}/opcion-respuesta`, body);
+  }
 }
