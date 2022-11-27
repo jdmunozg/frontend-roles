@@ -21,6 +21,9 @@ import { DropdownModule } from 'primeng/dropdown';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { PreguntasComponent } from './components/preguntas/preguntas.component';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { OpcionRespuestaComponent } from './components/preguntas/section/opcion-respuesta/opcion-respuesta.component';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
     SeccionCuestionarioComponent,
     PerfilComponent,
     PreguntasComponent,
+    OpcionRespuestaComponent,
   ],
   imports: [
     CommonModule,
@@ -49,6 +53,8 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
     DropdownModule,
     InputTextModule,
     InputTextareaModule,
+    MessagesModule,
+    MessageModule,
   ],
 })
 export class AdminModule {}

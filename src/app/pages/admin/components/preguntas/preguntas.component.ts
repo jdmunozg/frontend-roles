@@ -23,7 +23,7 @@ export class PreguntasComponent implements OnInit {
   information: any;
   display: boolean = false;
   seccion: any;
-  continuar: boolean = false;
+  continuar: boolean = true;
   constructor(
     private cuestionarioService: CuestionarioService,
     private _servicesCuestionario: CuestionarioServiceService,
@@ -67,12 +67,19 @@ export class PreguntasComponent implements OnInit {
       activo: true,
       puntos: info.puntos,
     });
+    this._servicesCuestionario
+      .getOpcionRespues(info.id_pregunta)
+      .subscribe((r) => {
+        this.seccion = r;
+      });
     this.display = true;
   }
+
   onSumit(value) {
     console.log(value);
     this._servicesCuestionario.pathPreguntas(value).subscribe((r) => {
       console.log(r);
     });
+    this.continuar = false;
   }
 }

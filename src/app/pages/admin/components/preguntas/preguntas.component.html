@@ -38,7 +38,7 @@
     [tableStyle]="{ 'min-width': '50rem' }"
     [loading]="loading"
     [scrollable]="true"
-    scrollHeight="400px"
+    scrollHeight="70vh"
   >
     <ng-template pTemplate="caption">
       <div class="p-d-flex">
@@ -156,10 +156,10 @@
     </form>
     <div style="width: 100%; margin-top: 20px" *ngIf="continuar != true">
       <p-accordion>
-        <app-seccion-cuestionario
+        <app-opcion-respuesta
           [informacion]="i"
           *ngFor="let i of seccion"
-        ></app-seccion-cuestionario>
+        ></app-opcion-respuesta>
       </p-accordion>
     </div>
   </div>

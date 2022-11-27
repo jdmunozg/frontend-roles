@@ -39,4 +39,15 @@ export class CuestionarioServiceService {
       bodyRequest
     );
   }
+
+  getOpcionRespues(id) {
+    return this.http.get(`${baserUrl}/opcion-respuesta/byPreguntaId/${id}`);
+  }
+
+  pathResouesta(bodyRequest) {
+    return this.http.patch(
+      `${baserUrl}/opcion-respuesta/${bodyRequest.id_opcion_respuesta}`,
+      bodyRequest
+    );
+  }
 }
