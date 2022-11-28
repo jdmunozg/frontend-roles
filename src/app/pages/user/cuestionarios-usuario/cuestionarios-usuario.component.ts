@@ -13,7 +13,7 @@ export class CuestionariosUsuarioComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(
       async data=>{
-        this.params = await data['tables'];
+         this.params = await data['tables'];
         console.log(this.params);
       }
     )

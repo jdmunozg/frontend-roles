@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
 import baserUrl from './helper';
 
 @Injectable({
@@ -15,6 +16,7 @@ export class UsuarioService implements OnInit{
     fk_rol_usuario : '',
     estado : ''
   }
+  public loginStatusSubjec = new Subject<boolean>();
   // public user_sesion = {
   //   correo:'',
   //   clave: ''
@@ -35,8 +37,23 @@ export class UsuarioService implements OnInit{
     if(userStr != null){
       return JSON.parse(userStr);
     }else{
-      // this.logout();
+      this.logout();
       return null;
     }
+  }
+  public isLoggedIn(){
+    let tokenStr = localStorage.getItem('usuario');
+    if(tokenStr == undefined || tokenStr == '' || tokenStr == null){
+      return false;
+    }else{
+      return true;
+    }
+  }
+
+  
+  //cerranis sesion y eliminamos el token del localStorage
+  public logout(){
+    localStorage.removeItem('usuario');
+    return true;
   }
 }
