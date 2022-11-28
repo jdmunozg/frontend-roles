@@ -1,22 +1,36 @@
+<ngx-ui-loader
+   fgsColor = "#A569BD"
+   pbColor = "#A569BD"
+   text = "Espere por favor..."
+   textColor = "#A569BD">
+</ngx-ui-loader>
 <div class="bootstrap-wrapper" style="background-color: white; min-height: 100vh;">
   <div class="container">
     <div *ngFor="let seccion of cuestionario">
-      <h3>Seccion: {{ seccion.seccion }}</h3>
-      <hr>
-      <div *ngFor="let pregunta of seccion.pregunta">
-        <p>
-          Pregunta: {{ pregunta.enunciado }}
-        </p>
-        <div style="border: 1px solid black ;">
-            <p *ngFor="let respuesta of pregunta.respuestas; index as index">
-                {{index}}.) {{respuesta.opcion_respuesta}}
+      <h1>Seccion: {{ seccion.seccion }}</h1>
+
+        <mat-card *ngFor="let pregunta of seccion.pregunta let i = index"  style="margin-bottom: 20px;">
+          <form action="">
+          <mat-card-content>
+            <p><b>{{ i+1 }}) </b> <span [innerHTML] = "pregunta.enunciado"></span>
+              Seccion: {{ seccion.seccion }}
             </p>
-        </div>
-      </div>
-      -->
-    <!-- </div>
-  </div> -->
-  -->
+            <mat-divider></mat-divider>
+            <div class="row mt20"  *ngFor="let respuesta of pregunta.respuestas; let i = index">
+              <div class="col-md-8 mt10">
+                <input value={{respuesta}} type="radio" name={{pregunta.id_pregunta}}
+                (change)="insertarSeccion(seccion.id_seccion, respuesta.id_opcion_respuesta)"
+                >  {{respuesta.opcion_respuesta}} 
+
+              </div>
+            </div>
+          </mat-card-content>
+          <div class="container text-center mt20 mb20">
+            <button  mat-raised-button color="primary">Enviar cuestionario</button>
+          </div>
+        </form>
+        </mat-card>
     </div>
   </div>
 </div>
+

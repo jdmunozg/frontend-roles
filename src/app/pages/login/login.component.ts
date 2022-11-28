@@ -45,19 +45,20 @@ export class LoginComponent implements OnInit {
     }
     this.usuarioService
       .autenticacionUsuario(this.loginData.correo, this.loginData.clave)
-      .subscribe((data: any) => {
+      .subscribe((data: any)=> {
         console.log(data);
         if (data['estado'] == true) {
           if (data.usuario.activo == true) {
             localStorage.setItem('usuario', JSON.stringify(data.usuario));
             this.rolService
               .getRolById(data.usuario.fk_rol_usuario)
-              .subscribe((data: any) => {
+              .subscribe(async (data: any) => {
                 if (data.rol != 'Admin') {
-                  this.router.navigate(['cuestionario']);
+                  await this.router.navigate(['cuestionario']);
                 } else {
-                  this.router.navigate(['admin']);
+                  await this.router.navigate(['admin']);
                 }
+                 window.location.reload();
               });
           }
         }

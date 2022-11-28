@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CuestionarioService } from 'src/app/services/cuestionario.service';
 import { RespuestasCuestionariosService } from 'src/app/services/respuestas-cuestionarios.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -12,6 +13,7 @@ import Swal from 'sweetalert2';
 export class TablesCuestionariosComponent implements OnInit {
   datos: any;
   idCuestionario:any;
+  idRespuestaCuestionario:any;
   params: any;
   cuestionario: any[] = [];
   constructor(
@@ -19,7 +21,8 @@ export class TablesCuestionariosComponent implements OnInit {
     private respuestasCuestionariosService: RespuestasCuestionariosService,
     private router:Router,
     private route:ActivatedRoute,
-    private activatedRoute:ActivatedRoute
+    private activatedRoute:ActivatedRoute,
+    private usuarioService:UsuarioService
   ) {}
 
   ngOnInit(): void {
@@ -44,6 +47,7 @@ export class TablesCuestionariosComponent implements OnInit {
       confirmButtonText:'Empezar',
       icon:'info'
     }).then((result:any) => {
+
       if(result.isConfirmed){
         this.router.navigate(['cuestionario/tables-cuestionarios/' + id_cuestionario])
       }
