@@ -1,0 +1,59 @@
+<p-accordionTab header="{{ informacion.id_opcion_respuesta }}">
+  <ng-template pTemplate="content">
+    <form [formGroup]="group" (ngSubmit)="onSumit(group.value)">
+      <div style="display: flex; flex-direction: row">
+        <div style="width: 50%; margin-right: 10px">
+          <span>ID</span><br />
+          <input
+            type="text"
+            pInputText
+            [value]="informacion.id_opcion_respuesta"
+            style="width: 100%"
+            disabled
+          />
+        </div>
+        <div style="width: 50%">
+          <span>Puntaje</span><br />
+          <input
+            type="number"
+            pInputText
+            [value]="informacion.porcentaje_exactitud"
+            style="width: 100%"
+            formControlName="porcentaje_exactitud"
+          />
+        </div>
+      </div>
+      <div style="width: 100%">
+        <span>Enunciado:</span><br />
+        <textarea
+          [rows]="5"
+          pInputTextarea
+          style="width: 100%"
+          formControlName="opcion_respuesta"
+        ></textarea>
+      </div>
+      <div
+        style="
+          display: flex;
+          align-items: flex-end;
+          justify-content: flex-end;
+          margin-top: 30px;
+        "
+      >
+        <button
+          pButton
+          label="Continuar"
+          style="
+            border-radius: 30px;
+            background-color: #7ab800;
+            color: white;
+            margin-right: 10px;
+          "
+          type="submit"
+          (click)="showViaService()"
+        ></button>
+      </div>
+    </form>
+  </ng-template>
+</p-accordionTab>
+<p-messages></p-messages>

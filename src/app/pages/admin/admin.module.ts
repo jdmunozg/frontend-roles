@@ -18,6 +18,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { SeccionCuestionarioComponent } from './components/cuestionario/section/seccion-cuestionario/seccion-cuestionario.component';
 import { AccordionModule } from 'primeng/accordion';
 import { DropdownModule } from 'primeng/dropdown';
+import { PerfilComponent } from './components/perfil/perfil.component';
+import { PreguntasComponent } from './components/preguntas/preguntas.component';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { OpcionRespuestaComponent } from './components/preguntas/section/opcion-respuesta/opcion-respuesta.component';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
+import { CrearCuestionarioComponent } from './components/crear-cuestionario/crear-cuestionario.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +33,10 @@ import { DropdownModule } from 'primeng/dropdown';
     WelcomeComponent,
     CuestionarioComponent,
     SeccionCuestionarioComponent,
+    PerfilComponent,
+    PreguntasComponent,
+    OpcionRespuestaComponent,
+    CrearCuestionarioComponent,
   ],
   imports: [
     CommonModule,
@@ -42,6 +53,10 @@ import { DropdownModule } from 'primeng/dropdown';
     HttpClientModule,
     AccordionModule,
     DropdownModule,
+    InputTextModule,
+    InputTextareaModule,
+    MessagesModule,
+    MessageModule,
   ],
 })
 export class AdminModule {}

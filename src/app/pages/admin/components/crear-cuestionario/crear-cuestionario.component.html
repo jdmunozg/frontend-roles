@@ -1,0 +1,357 @@
+<div
+  style="
+    width: 100%;
+    height: 90vh;
+
+    display: flex;
+    justify-content: center;
+  "
+>
+  <div
+    style="
+      width: 70%;
+      height: 100%;
+      background-color: rgb(224, 224, 224);
+      display: flex;
+      flex-direction: column;
+    "
+  >
+    <div
+      style="
+        width: 100%;
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+      "
+    >
+      <h1>Crear Nuevo cuestionario</h1>
+    </div>
+    <br />
+    <form [formGroup]="group" (ngSubmit)="onSumit(group.value)">
+      <div
+        style="
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+        "
+      >
+        <div style="width: 30%">
+          <span>Nombre Cuestionario:</span><br />
+          <input
+            type="text"
+            pInputText
+            placeholder="Nombre Cuestionario"
+            formControlName="nombre"
+            required="true"
+          />
+        </div>
+        <div style="width: 30%">
+          <span>Semetre:</span><br />
+          <input
+            type="number"
+            pInputText
+            placeholder="Semetre"
+            formControlName="fk_semestre"
+            required="true"
+          />
+        </div>
+        <div style="width: 30%">
+          <span>Puntaje:</span><br />
+          <input
+            type="number"
+            pInputText
+            placeholder="Puntaje"
+            formControlName="estandar_puntuacion"
+            required="true"
+          />
+        </div>
+      </div>
+      <div
+        style="
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-end;
+          margin-top: 10px;
+          margin-left: -50px;
+        "
+        *ngIf="botonOne != false"
+      >
+        <button
+          pButton
+          label="Continuar"
+          style="
+            border-radius: 30px;
+            background-color: #7ab800;
+            color: white;
+            margin-right: 10px;
+          "
+          type="submit"
+        ></button>
+      </div>
+    </form>
+
+    <div *ngIf="seccionNueva != false" style="margin-top: 30px">
+      <div style="width: 100%; display: flex; justify-content: center">
+        <h1>Crear Seccion</h1>
+      </div>
+      <form [formGroup]="groups" (ngSubmit)="onSumits(groups.value)">
+        <div
+          style="
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+          "
+        >
+          <div style="width: 30%">
+            <span>Nombre Seccion:</span><br />
+            <input
+              type="text"
+              pInputText
+              placeholder="Nombre Seccion"
+              formControlName="seccion"
+              required="true"
+            />
+          </div>
+          <div style="width: 30%">
+            <span>Puntaje:</span><br />
+            <input
+              type="number"
+              pInputText
+              placeholder="Puntaje"
+              formControlName="estandar_puntuacion"
+              required="true"
+            />
+          </div>
+          <div style="width: 30%">
+            <span>Habilidad:</span><br />
+            <p-dropdown
+              [options]="cities"
+              [(ngModel)]="selectedCity"
+              optionLabel="habilidad"
+              optionValue="id_habilidad"
+              formControlName="fk_habilidad"
+              placeholder="Selecciona habilidad"
+            ></p-dropdown>
+          </div>
+        </div>
+        <div
+          style="
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            margin-top: 10px;
+            margin-left: -50px;
+          "
+          *ngIf="botonTwo != false"
+        >
+          <button
+            pButton
+            label="Continuar"
+            style="
+              border-radius: 30px;
+              background-color: #7ab800;
+              color: white;
+              margin-right: 10px;
+            "
+            type="submit"
+          ></button>
+          <button
+            pButton
+            label="Crear Nueva"
+            style="
+              border-radius: 30px;
+              background-color: #7ab800;
+              color: white;
+              margin-right: 10px;
+            "
+            *ngIf="nuevaSeccion != false"
+            (click)="limpiar('sec')"
+            type="button"
+          ></button>
+          <button
+            pButton
+            label="Devolverse"
+            style="
+              border-radius: 30px;
+              background-color: #7ab800;
+              color: white;
+              margin-right: 10px;
+            "
+            (click)="cerrarSeccionSeccionCuestionario()"
+            type="button"
+          ></button>
+        </div>
+      </form>
+    </div>
+
+    <div *ngIf="seccionPregunas != false" style="margin-top: 30px">
+      <div style="width: 100%; display: flex; justify-content: center">
+        <h1>Crear Seccion</h1>
+      </div>
+      <form [formGroup]="groupp" (ngSubmit)="onSumitP(groupp.value)">
+        <div
+          style="
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+          "
+        >
+          <div style="width: 30%">
+            <span>Puntaje:</span><br />
+            <input
+              type="number"
+              pInputText
+              placeholder="Puntaje"
+              formControlName="puntos"
+              required="true"
+            />
+          </div>
+          <div style="width: 60%">
+            <span>Enunciado</span><br />
+            <textarea
+              [rows]="5"
+              pInputTextarea
+              style="width: 100%"
+              formControlName="enunciado"
+            ></textarea>
+          </div>
+        </div>
+        <div
+          style="
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            margin-top: 10px;
+            margin-left: -50px;
+          "
+          *ngIf="botonTree != false"
+        >
+          <button
+            pButton
+            label="Continuar"
+            style="
+              border-radius: 30px;
+              background-color: #7ab800;
+              color: white;
+              margin-right: 10px;
+            "
+            type="submit"
+          ></button>
+          <button
+            pButton
+            label="Crear Nueva"
+            style="
+              border-radius: 30px;
+              background-color: #7ab800;
+              color: white;
+              margin-right: 10px;
+            "
+            *ngIf="nuevaPre != false"
+            (click)="limpiar('pre')"
+            type="button"
+          ></button>
+          <button
+            pButton
+            label="Devolverse"
+            style="
+              border-radius: 30px;
+              background-color: #7ab800;
+              color: white;
+              margin-right: 10px;
+            "
+            (click)="cerrarSeccionpregunta()"
+            type="button"
+          ></button>
+        </div>
+      </form>
+    </div>
+
+    <div *ngIf="seccionRespuesta != false" style="margin-top: 30px">
+      <div style="width: 100%; display: flex; justify-content: center">
+        <h1>Crear Seccion</h1>
+      </div>
+      <form [formGroup]="groupr" (ngSubmit)="onSumitR(groupr.value)">
+        <div
+          style="
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+          "
+        >
+          <div style="width: 30%">
+            <span>Puntaje:</span><br />
+            <input
+              type="number"
+              pInputText
+              placeholder="Puntaje"
+              formControlName="porcentaje_exactitud"
+              required="true"
+            />
+          </div>
+          <div style="width: 60%">
+            <span>Enunciado</span><br />
+            <textarea
+              [rows]="5"
+              pInputTextarea
+              style="width: 100%"
+              formControlName="opcion_respuesta"
+            ></textarea>
+          </div>
+        </div>
+        <div
+          style="
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            margin-top: 10px;
+            margin-left: -50px;
+          "
+        >
+          <button
+            pButton
+            label="Crear otra"
+            style="
+              border-radius: 30px;
+              background-color: #7ab800;
+              color: white;
+              margin-right: 10px;
+            "
+            (click)="limpiar('resp')"
+            type="button"
+          ></button>
+          <button
+            pButton
+            label="Guardar"
+            style="
+              border-radius: 30px;
+              background-color: #7ab800;
+              color: white;
+              margin-right: 10px;
+            "
+            type="submit"
+          ></button>
+          <button
+            pButton
+            label="Devolverse"
+            style="
+              border-radius: 30px;
+              background-color: #7ab800;
+              color: white;
+              margin-right: 10px;
+            "
+            (click)="cerrarSeccionRespuesta()"
+            type="button"
+          ></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

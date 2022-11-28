@@ -18,6 +18,7 @@ export class CuestionarioComponent implements OnInit {
   groups: FormGroup;
   continuar: boolean = true;
   seccion: any;
+  abrir: boolean = false;
   constructor(
     private cuestionarioService: CuestionarioService,
     private formBuilder: FormBuilder,
@@ -39,6 +40,7 @@ export class CuestionarioComponent implements OnInit {
 
   showDialog(value: any) {
     console.log(value);
+    this.abrir = true;
     this.continuar = true;
     this.information = value;
     this.group = this.formBuilder.group({
@@ -56,6 +58,7 @@ export class CuestionarioComponent implements OnInit {
     setTimeout(() => {
       console.log(this.seccion);
       this.display = true;
+      this.abrir = false;
     }, 3000);
   }
 

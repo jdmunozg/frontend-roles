@@ -1,14 +1,27 @@
-<p-table [value]="datos">
+<div *ngIf="!params">
+  <p-table [value]="datos">
     <ng-template pTemplate="header">
-        <tr>
-            <th>Cuestionario</th>
-            <th>Comenzar</th>
-        </tr>
+      <tr>
+        <th>Cuestionario</th>
+        <th>Comenzar</th>
+      </tr>
     </ng-template>
     <ng-template pTemplate="body" let-dato>
-        <tr>
-            <td>{{dato.nombre}}</td>
-            <td><button href='' class="btn btn-primary">Iniciar</button></td>
-        </tr>
+      <tr>
+        <td>{{ dato.nombre }}</td>
+        <td>
+          <button
+            (click)="empezarExamen(dato.id_cuestionario)"
+            class="btn btn-primary"
+          >
+            Iniciar
+          </button>
+        </td>
+      </tr>
     </ng-template>
-</p-table>
+  </p-table>
+</div>
+
+<div *ngIf="params">
+  <app-preguntas-cuestionario [cuestionario]="cuestionario"></app-preguntas-cuestionario>
+</div>

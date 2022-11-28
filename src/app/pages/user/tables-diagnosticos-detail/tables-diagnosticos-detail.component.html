@@ -1,21 +1,54 @@
 <div *ngIf="!datos.length">
   <p>No se han realizado diagnosticos....</p>
 </div>
-<p-table [value]="datos" *ngIf="datos.length">
-  <ng-template pTemplate="header">
-    <tr>
-      <th id="">Id</th>
-      <th id="">Diagnostico</th>
-      <th id="">Rol Ingeniero</th>
-      <th id="">Porcentaje similitud</th>
-    </tr>
-  </ng-template>
-  <ng-template pTemplate="body" let-dato>
-    <tr>
-      <td>{{ dato.id_diagnostico_rol_ingeniero }}</td>
-      <td>{{ dato.fk_diagnostico }}</td>
-      <td>{{ dato.fk_rol_ingeniero }}</td>
-      <td>{{ dato.porcentaje_similitud }} %</td>
-    </tr>
-  </ng-template>
-</p-table>
+<div *ngIf="datos.length">
+  <p>Resultados del diagnostico de roles:</p>
+  <p-table [value]="datos">
+    <ng-template pTemplate="header">
+      <tr>
+        <th id="">Id</th>
+        <th id="">Diagnostico</th>
+        <th id="">Rol Ingeniero</th>
+        <th id="">Porcentaje similitud</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-dato>
+      <tr>
+        <td>{{ dato.diagnosticoRolIngeniero.id_diagnostico_rol_ingeniero }}</td>
+        <td>{{ dato.diagnosticoRolIngeniero.fk_diagnostico }}</td>
+        <td>{{ dato.rolIngeniero.nombre }}</td>
+        <td>{{ dato.diagnosticoRolIngeniero.porcentaje_similitud }} %</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+<div class="mb-3">
+  <p *ngIf="!puntajeSecciones.length">
+    Se estan cargando los puntajes de las secciones...
+  </p>
+  <div *ngIf="puntajeSecciones.length">
+    <p>
+      Resultados del diagnostico por seccion:
+    </p>
+    <p-table [value]="puntajeSecciones">
+      <ng-template pTemplate="header">
+        <tr>
+          <th id="">Id</th>
+          <th id="">Seccion</th>
+          <th id="">Estandar Puntuacion</th>
+          <th id="">Puntuacion Obtenida</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-puntajesSeccion>
+        <tr>
+          <td>
+            {{ puntajesSeccion.seccionCuestionario.id_seccion_cuestionario }}
+          </td>
+          <td>{{ puntajesSeccion.seccionCuestionario.seccion }}</td>
+          <td>{{ puntajesSeccion.seccionCuestionario.estandar_puntuacion }}</td>
+          <td>{{ puntajesSeccion.puntaje }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

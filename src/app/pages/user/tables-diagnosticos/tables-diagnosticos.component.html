@@ -1,4 +1,7 @@
-<p-table [value]="datos" *ngIf="!params">
+<div *ngIf="!datos || !datos.length">
+  <p>No se han realizado diagnosticos....</p>
+</div>
+<p-table [value]="datos" *ngIf="!params && datos && datos.length">
   <ng-template pTemplate="header">
     <tr>
       <th id="">Id</th>
@@ -25,5 +28,5 @@
 </p-table>
 <app-tables-diagnosticos-detail
   [diagnosticoId]="params"
-  *ngIf="params"
+  *ngIf="params && datos && datos.length"
 ></app-tables-diagnosticos-detail>
