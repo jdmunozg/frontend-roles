@@ -24,4 +24,11 @@ export class DiagnosticoService {
       `${baserUrl}/diagnostico/puntaje-secciones/${id_respuesta_cuestioanrio}/${id_diagnostico}`
     );
   }
+
+  public createDiagnostico(resultados:any){
+    return this.http.post(`${baserUrl}/diagnostico`,resultados)
+  }
+  public getDiagnosticoRol(id:number){
+    return this.http.get(`${baserUrl}/diagnostico/respuesta-cuestonario/${id}`);
+  }
 }
