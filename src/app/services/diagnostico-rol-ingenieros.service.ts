@@ -17,4 +17,6 @@ export class DiagnosticoRolIngenierosService {
       `${baserUrl}/diagnostico-rol-ingeniero/diagnostico/${id}`
     );
   }
+
+
 }

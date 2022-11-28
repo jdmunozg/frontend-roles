@@ -23,4 +23,8 @@ export class RespuestasCuestionariosService {
   public respuestaSeccionCuestionario(seccion:any){
     return this.http.post(`${baserUrl}/respuesta-seccion-cuestionario`,seccion)
   }
+
+  public respuestaPregunta(pregunta:any){
+    return this.http.post(`${baserUrl}/respuesta-pregunta`,pregunta)
+  }
 }

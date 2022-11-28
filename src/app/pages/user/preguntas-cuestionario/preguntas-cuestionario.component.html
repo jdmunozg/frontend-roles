@@ -10,7 +10,7 @@
       <h1>Seccion: {{ seccion.seccion }}</h1>
 
         <mat-card *ngFor="let pregunta of seccion.pregunta let i = index"  style="margin-bottom: 20px;">
-          <form action="">
+          <form action="" >
           <mat-card-content>
             <p><b>{{ i+1 }}) </b> <span [innerHTML] = "pregunta.enunciado"></span>
               Seccion: {{ seccion.seccion }}
@@ -25,11 +25,11 @@
               </div>
             </div>
           </mat-card-content>
-          <div class="container text-center mt20 mb20">
-            <button  mat-raised-button color="primary">Enviar cuestionario</button>
-          </div>
         </form>
         </mat-card>
+    </div>
+    <div class="container text-center mt20 mb20">
+      <button (click)="enviarCuestionario()" type="submit" mat-raised-button color="primary">Enviar cuestionario</button>
     </div>
   </div>
 </div>
