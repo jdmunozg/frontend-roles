@@ -11,7 +11,7 @@
           </router-outlet>
           <app-tables-cuestionarios [parametro]=params *ngIf="estado == false">
           </app-tables-cuestionarios>
-          <app-preguntas-cuestionario [parametro] = params *ngIf="estado == true"></app-preguntas-cuestionario>
+          <app-preguntas-cuestionario [params] = params *ngIf="estado == true"></app-preguntas-cuestionario>
         </div>
         
         <!-- <div class="col-md-9">

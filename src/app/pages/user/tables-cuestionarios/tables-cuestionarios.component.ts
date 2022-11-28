@@ -13,7 +13,6 @@ import Swal from 'sweetalert2';
 export class TablesCuestionariosComponent implements OnInit {
   @Input() parametro: any;
   datos: any;
-
   idCuestionario: any;
   idRespuestaCuestionario: any;
   params: any;
