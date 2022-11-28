@@ -1,0 +1,173 @@
+<div
+  style="
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  "
+>
+  <div style="width: 250px">
+    <p-dropdown
+      [options]="cities"
+      [(ngModel)]="selectedCity"
+      optionLabel="nombre"
+      placeholder="Selecciona un cuestionario"
+      optionValue="id_cuestionario"
+      [style]="{ width: '100%' }"
+      (onChange)="selectCuestionario($event.value)"
+    ></p-dropdown>
+  </div>
+  <div style="width: 250px; margin-left: 10px">
+    <p-dropdown
+      [options]="citiesT"
+      [(ngModel)]="selectedCityT"
+      optionLabel="seccion"
+      placeholder="Selecciona una seccion"
+      optionValue="id_seccion"
+      [style]="{ width: '100%' }"
+      (onChange)="tableRellenar($event.value)"
+    ></p-dropdown>
+  </div>
+</div>
+
+<div style="margin-top: 10px" *ngIf="products != null && products != ''">
+  <p-table
+    #dt1
+    [columns]="cols"
+    [value]="products"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    [loading]="loading"
+    [scrollable]="true"
+    scrollHeight="70vh"
+  >
+    <ng-template pTemplate="caption">
+      <div class="p-d-flex">
+        <span class="p-input-icon-left p-ml-auto">
+          <i class="pi pi-search"></i>
+          <input
+            pInputText
+            type="text"
+            (input)="dt1.filterGlobal($any($event.target).value, 'contains')"
+            placeholder="Search keyword"
+          />
+        </span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of columns">
+          {{ col.header }}
+        </th>
+        <th>Herramientas</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+      <tr>
+        <td *ngFor="let col of columns">
+          {{ rowData[col.field] }}
+        </td>
+
+        <td>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-pencil"
+            class="p-button-rounded p-button-success mr-2"
+            style="margin-right: 30px"
+            (click)="showModal(rowData)"
+          ></button>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-trash"
+            class="p-button-rounded p-button-warning"
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<p-dialog
+  header="Actualizar"
+  [(visible)]="display"
+  [modal]="true"
+  [style]="{ width: '50vw' }"
+  [baseZIndex]="10000"
+  [draggable]="false"
+  [resizable]="false"
+>
+  <div class="container" *ngIf="information != null">
+    <form [formGroup]="group" (ngSubmit)="onSumit(group.value)">
+      <div style="width: 100%; display: flex; flex-direction: row">
+        <div style="width: 50%; margin-right: 10px">
+          <span>ID:</span>
+          <input
+            type="text"
+            pInputText
+            style="width: 100%"
+            [required]="true"
+            [value]="information.id_pregunta"
+            disabled
+          />
+        </div>
+        <div style="width: 50%">
+          <span>Puntaje:</span>
+          <input
+            type="text"
+            pInputText
+            style="width: 100%"
+            [required]="true"
+            formControlName="puntos"
+          />
+        </div>
+      </div>
+      <div style="width: 100%; display: flex; flex-direction: row">
+        <div style="width: 100%">
+          <span>Enunciado:</span><br />
+          <textarea
+            [rows]="5"
+            pInputTextarea
+            style="width: 100%"
+            formControlName="enunciado"
+          ></textarea>
+        </div>
+      </div>
+      <div
+        style="
+          display: flex;
+          align-items: flex-end;
+          justify-content: flex-end;
+          margin-top: 30px;
+        "
+      >
+        <button
+          pButton
+          label="Continuar"
+          style="
+            border-radius: 30px;
+            background-color: #7ab800;
+            color: white;
+            margin-right: 10px;
+          "
+          type="submit"
+        ></button>
+      </div>
+    </form>
+    <div style="width: 100%; margin-top: 20px" *ngIf="continuar != true">
+      <p-accordion>
+        <app-opcion-respuesta
+          [informacion]="i"
+          *ngFor="let i of seccion"
+        ></app-opcion-respuesta>
+      </p-accordion>
+    </div>
+  </div>
+  <ng-template pTemplate="footer">
+    <p-button
+      icon="pi pi-times"
+      (click)="display = false"
+      label="Cerrar"
+    ></p-button>
+  </ng-template>
+</p-dialog>

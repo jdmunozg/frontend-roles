@@ -27,7 +27,8 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
 import { PreguntasCuestionarioComponent } from './pages/user/preguntas-cuestionario/preguntas-cuestionario.component';
 import { TablesDiagnosticosComponent } from './pages/user/tables-diagnosticos/tables-diagnosticos.component';
 import { TablesDiagnosticosDetailComponent } from './pages/user/tables-diagnosticos-detail/tables-diagnosticos-detail.component';
-// import { NgxUiLoaderModule , NgxUiLoaderHttpModule } from "ngx-ui-loader";
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import { NgxUiLoaderModule , NgxUiLoaderHttpModule } from "ngx-ui-loader";
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,10 +62,11 @@ import { TablesDiagnosticosDetailComponent } from './pages/user/tables-diagnosti
     MatInputModule,
     MatSelectModule,
     TableModule,
-    // NgxUiLoaderModule,
-    // NgxUiLoaderHttpModule.forRoot({
-    //   showForeground:true
-    // })
+    ProgressSpinnerModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({
+      showForeground:true
+    })
   ],
   providers: [],
   bootstrap: [AppComponent],

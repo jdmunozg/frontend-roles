@@ -18,15 +18,6 @@ export class CuestionariosUsuarioComponent implements OnInit {
       await this.params;
       //console.log(this.params);
     });
-    try {
-      let numero = Number(this.params);
-      if (isNaN(numero)) {
-        //console.log(true);
-        this.estado = false;
-      }
-    } catch (error) {
-      console.log(error);
-    }
     //console.log(this.estado);
   }
 }

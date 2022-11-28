@@ -15,4 +15,12 @@ export class RespuestasCuestionariosService {
   public getAllByUsuarioId(id: number) {
     return this.http.get(`${baserUrl}/respuesta-cuestionario/usuario/${id}`);
   }
+
+  public respuestaCuestionario(respuestas:any){
+    return this.http.post(`${baserUrl}/respuesta-cuestionario`,respuestas)
+  }
+
+  public respuestaSeccionCuestionario(seccion:any){
+    return this.http.post(`${baserUrl}/respuesta-seccion-cuestionario`,seccion)
+  }
 }

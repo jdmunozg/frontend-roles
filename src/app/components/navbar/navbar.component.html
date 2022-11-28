@@ -1,57 +1,68 @@
-<nav class="" style="display: flex; justify-content: space-between; align-items: center; background-color: #3F51B5; color: #fff; padding: 0.5rem;">
-    <div style="display: flex; justify-content: center; align-items: center; margin-left: 2rem;">
-    <a
-      [routerLink]="'/'"
-      mat-icon-button
-      class="example-icon"
-      arial-label="Example icon-button with menu icon"
-      style="cursor: pointer; "
-    >
-      <mat-icon>menu_books</mat-icon>
-    </a>
-    <span      style="font-size: 1.4rem;">PerfilSoft!</span>
-    <span class="example-spacer"></span>
-    </div>
-    <div style="display: flex; justify-content: center; align-items: center;  margin-right: 2rem;">
-    <a
 
-      [routerLink]="'/login'"
-      mat-icon-button
-      class = "example-icon favorite-icon"
-      aria-label = "Example icon-button with heart icon"
-      style="font-size: 1rem"
-    >
-      Iniciar sesión
-    </a>
-    <a
-      [routerLink]="'/registro'"
-      mat-icon-button
-      class="example-icon favorite-icon mr20 ml70"
-      aria-label="Example icon-button with heart icon"
-      style="font-size: 1rem" 
-    >
-      Registrar
-    </a>
+<mat-toolbar  style="display: flex; justify-content: space-around; align-items: center; background-color: #3F51B5; color: #fff; padding: 0.5rem;" color="primary">
+  <div style="display: flex; justify-content: center; align-items: center; margin-left: 2rem;">
+  <a
+   *ngIf = "isLoggedIn==true"
+    mat-icon-button
+    class="example-icon text-white"
+    arial-label="Example icon-button with menu icon"
+  >
+    <mat-icon>menu_books</mat-icon>
+  </a>
+  <a
+  *ngIf = "isLoggedIn==false"
+   [routerLink]="'/login'"
+   mat-icon-button
+   class="example-icon text-white"
+   arial-label="Example icon-button with menu icon"
+ >
+   <mat-icon>menu_books</mat-icon>
+ </a>
+  <span>PerfilSoft!</span>
+  <span class="example-spacer"></span>
 </div>
-  
-</nav>  
-    <!-- <a
 
-      (click) = "logout()"
-      style="margin-right: 50px"
-      mat-icon-button
-      class="example-icon favorite-icon"
-      aria-label="Example icon-button with heart icon"
-    >
-      Cerrar sesión
-    </a> -->
-    <!-- <button
-
-      mat-button
-      style="margin-right: 10px"
-      class="example-icon favorite-icon"
-      aria-label="Example icon-button with heart icon"
-      [routerLink] = "'/admin/profile'"
-    >
-      {{ user.username }}
-    </button> -->
+<div style="display: flex; justify-content: center; align-items: center; margin-right: -30rem;">
+  <a
+    *ngIf = "isLoggedIn==false"
+    [routerLink]="'/login'"
+    mat-icon-button
+    class = "example-icon favorite-icon text-white"
+    aria-label = "Example icon-button with heart icon"
+  > 
+    Iniciar sesión
+  </a>
+  <a
+    *ngIf = "isLoggedIn==false"
+    [routerLink]="'/registro'"
+    mat-icon-button
+    class="example-icon favorite-icon mr20 ml70 text-white"
+    aria-label="Example icon-button with heart icon"
+  >
+    Registrar
+  </a>
+</div>
+<div style="display: flex; justify-content: center; align-items: center;  margin-right: 2rem;">
+  <a
+    *ngIf = "isLoggedIn==true"
+    (click) = "logout()"
+    style="margin-right: 50px"
+    mat-icon-button
+    class="example-icon favorite-icon text-white"
+    aria-label="Example icon-button with heart icon"
+    [routerLink] = "'/login'"
+  >
+    Cerrar sesión
+  </a>
+  <button
+    *ngIf = "isLoggedIn==true && user"
+    mat-button
+    style="margin-right: 10px"
+    class="example-icon favorite-icon text-white"
+    aria-label="Example icon-button with heart icon"
+    [routerLink] = "'/admin/profile'"
+  >
+    {{ user.nombre }}
+  </button>
+  </div>
+</mat-toolbar>

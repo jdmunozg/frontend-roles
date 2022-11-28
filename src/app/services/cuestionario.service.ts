@@ -12,5 +12,7 @@ export class CuestionarioService {
   public listarCategorias(){
     return this.http.get(`${baserUrl}/cuestionario`);
   }
-  
+  public mostrarCuestionario(idCuestionario){
+    return this.http.get(`${baserUrl}/cuestionario/all/${idCuestionario}`)
+  }
 }

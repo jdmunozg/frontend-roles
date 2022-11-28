@@ -1,37 +1,36 @@
-<!--
-<div class="bootstrap-wrapper">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <mat-card class="mt20">
-            <mat-card-header>
-              <mat-card-title>
-                Lea las instrucciones de esta página cuidadosamente
-              </mat-card-title>
-            </mat-card-header>
-            <mat-card-subtitle>Un paso más para ir</mat-card-subtitle>
-            <mat-card-content class="ml30">
-              <h1> Cuestionatio #{{ parametro }}</h1>
-              <mat-divider></mat-divider>
-            <br>
-            <h1>Intentos de la prueba</h1>
-            <ul>
-              <li>Presione el boton <b>Empezar</b> para iniciar el examen</li>
-              <li>El tiempo comenzará en el momento en que haga click en el botón de inicio</li>
-              <li>No puede reanudar este cuestionario si se interrumpe por algún motivo</li>
-              <li>Desplácese hacia abajo para pasar a la siguiente pregunta</li>
-              <li>Haga clic en el botón enviar cuestionario al finalizar el cuestionario</li>
-              <li>El informe de la prueba se genera automáticamente en forma de copia PDF</li>
-            </ul>
+<ngx-ui-loader
+   fgsColor = "#A569BD"
+   pbColor = "#A569BD"
+   text = "Espere por favor..."
+   textColor = "#A569BD">
+</ngx-ui-loader>
+<div class="bootstrap-wrapper" style="background-color: white; min-height: 100vh;">
+  <div class="container">
+    <div *ngFor="let seccion of cuestionario">
+      <h1>Seccion: {{ seccion.seccion }}</h1>
+
+        <mat-card *ngFor="let pregunta of seccion.pregunta let i = index"  style="margin-bottom: 20px;">
+          <form action="">
+          <mat-card-content>
+            <p><b>{{ i+1 }}) </b> <span [innerHTML] = "pregunta.enunciado"></span>
+              Seccion: {{ seccion.seccion }}
+            </p>
+            <mat-divider></mat-divider>
+            <div class="row mt20"  *ngFor="let respuesta of pregunta.respuestas; let i = index">
+              <div class="col-md-8 mt10">
+                <input value={{respuesta}} type="radio" name={{pregunta.id_pregunta}}
+                (change)="insertarSeccion(seccion.id_seccion, respuesta.id_opcion_respuesta)"
+                >  {{respuesta.opcion_respuesta}} 
+
+              </div>
+            </div>
           </mat-card-content>
-          <mat-card-actions class="text-center mb20">
-            <button  mat-raised-button color="primary">
-              Comenzar prueba
-            </button>
-          </mat-card-actions>
-          </mat-card>
-        </div>
-      </div>
+          <div class="container text-center mt20 mb20">
+            <button  mat-raised-button color="primary">Enviar cuestionario</button>
+          </div>
+        </form>
+        </mat-card>
     </div>
   </div>
-  -->
+</div>
+
